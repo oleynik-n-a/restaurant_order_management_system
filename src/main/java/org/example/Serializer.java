@@ -9,12 +9,12 @@ public class Serializer<T> {
         this.path = path;
     }
 
-    public void Serialize(T obj) throws IOException, ClassNotFoundException {
+    public void serialize(T obj) throws IOException, ClassNotFoundException {
         final ObjectOutputStream ObjectOutputStream = new ObjectOutputStream(new FileOutputStream(path));
         ObjectOutputStream.writeObject(obj);
     }
 
-    public T Deserialize() throws IOException, ClassNotFoundException {
+    public T deserialize() throws IOException, ClassNotFoundException {
         final ObjectInputStream ObjectInputStream = new ObjectInputStream(new FileInputStream(path));
         return (T) ObjectInputStream.readObject();
     }

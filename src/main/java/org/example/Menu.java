@@ -11,14 +11,14 @@ public class Menu {
 
     public Menu() throws IOException, ClassNotFoundException {
         serializer = new Serializer<List<Dish>>("../Database/");
-        dishesList = serializer.Deserialize();
+        dishesList = serializer.deserialize();
     }
 
     public List<Dish> getDishesList() {
         return dishesList;
     }
 
-    public void SaveData() throws IOException, ClassNotFoundException {
-        serializer.Serialize(dishesList);
+    public void saveData() throws IOException, ClassNotFoundException {
+        serializer.serialize(dishesList);
     }
 }
