@@ -49,6 +49,9 @@ public abstract class Dish implements IReviewable {
     }
 
     public double getRating() {
+        if (reviews.isEmpty()) {
+            return 0;
+        }
         double rating = 0.0;
         for (var review : reviews) {
             rating += review.getRating();
