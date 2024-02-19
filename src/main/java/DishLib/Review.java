@@ -1,20 +1,20 @@
 package DishLib;
 
 public class Review {
-    private final int rating;
-    private final String commentary;
+    private final int _rating;
+    private final String _commentary;
 
     public Review(int rating, String commentary) {
-        this.rating = rating;
-        this.commentary = commentary;
+        _rating = rating;
+        _commentary = commentary;
     }
 
     public int getRating() {
-        return rating;
+        return _rating;
     }
 
     @Override
     public String toString() {
-        return String.format("%d. %s", rating, commentary);
+        return String.format("%d. %s", _rating, _commentary);
     }
 }

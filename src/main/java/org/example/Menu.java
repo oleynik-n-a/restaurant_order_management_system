@@ -6,19 +6,19 @@ import java.io.*;
 import java.util.List;
 
 public class Menu {
-    private final List<Dish> dishesList;
-    private final Serializer<List<Dish>> serializer;
+    private final List<Dish> _dishesList;
+    private final Serializer<List<Dish>> _serializer;
 
     public Menu() throws IOException, ClassNotFoundException {
-        serializer = new Serializer<List<Dish>>("../Database/");
-        dishesList = serializer.deserialize();
+        _serializer = new Serializer<List<Dish>>("../Database/");
+        _dishesList = _serializer.deserialize();
     }
 
     public List<Dish> getDishesList() {
-        return dishesList;
+        return _dishesList;
     }
 
     public void saveData() throws IOException, ClassNotFoundException {
-        serializer.serialize(dishesList);
+        _serializer.serialize(_dishesList);
     }
 }
