@@ -1,4 +1,4 @@
-package org.example;
+package Program;
 
 import DishLib.Dish;
 
