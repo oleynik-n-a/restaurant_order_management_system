@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a6318ab-e4d1-47d1-80dc-ff0356c32ea6" name="Changes" comment="">
+    <list default="true" id="0a6318ab-e4d1-47d1-80dc-ff0356c32ea6" name="Changes" comment="Fix for Dish::getRating in case to avoid NullReferenceException">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DishLib/Dish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DishLib/Dish.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,15 +63,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature_menu-fix" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -106,7 +105,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "develop",
+    "git-widget-placeholder": "feature__user-types",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -116,7 +115,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -136,7 +135,17 @@
       <option name="presentableId" value="Default" />
       <updated>1708168205708</updated>
       <workItem from="1708168206729" duration="10727000" />
+      <workItem from="1708331054141" duration="2794000" />
     </task>
+    <task id="LOCAL-00001" summary="Fix for Dish::getRating in case to avoid NullReferenceException">
+      <option name="closed" value="true" />
+      <created>1708200572816</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1708200572816</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,6 +180,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fix for class menu" />
     <MESSAGE value="Fix for classes: Menu, Serializer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix for classes: Menu, Serializer" />
+    <MESSAGE value="Fix for Dish::getRating in case to avoid NullReferenceException" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix for Dish::getRating in case to avoid NullReferenceException" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
