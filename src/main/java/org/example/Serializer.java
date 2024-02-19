@@ -14,8 +14,9 @@ public class Serializer<T> {
         ObjectOutputStream.writeObject(obj);
     }
 
+    @SuppressWarnings("unchecked")
     public T deserialize() throws IOException, ClassNotFoundException {
         final ObjectInputStream ObjectInputStream = new ObjectInputStream(new FileInputStream(path));
-        return (T) ObjectInputStream.readObject();
+        return (T)ObjectInputStream.readObject();
     }
 }
