@@ -4,18 +4,18 @@ import DishLib.Dish;
 import Program.Serializer;
 
 import java.io.*;
-import java.util.List;
+import java.util.ArrayList;
 
 public class Menu {
-    private final List<Dish> _dishesList;
-    private final Serializer<List<Dish>> _serializer;
+    private final ArrayList<Dish> _dishesList;
+    private final Serializer<ArrayList<Dish>> _serializer;
 
     public Menu() throws IOException, ClassNotFoundException {
-        _serializer = new Serializer<List<Dish>>("../Database/");
+        _serializer = new Serializer<ArrayList<Dish>>("../Database/");
         _dishesList = _serializer.deserialize();
     }
 
-    public List<Dish> getDishesList() {
+    public ArrayList<Dish> getDishesList() {
         return _dishesList;
     }
 

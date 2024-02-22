@@ -9,7 +9,7 @@ public class Serializer<T> {
         this.path = path;
     }
 
-    public void serialize(T obj) throws IOException, ClassNotFoundException {
+    public void serialize(T obj) throws IOException {
         final ObjectOutputStream ObjectOutputStream = new ObjectOutputStream(new FileOutputStream(path));
         ObjectOutputStream.writeObject(obj);
     }
