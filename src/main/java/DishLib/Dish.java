@@ -1,13 +1,12 @@
 package DishLib;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public abstract class Dish implements IReviewable {
     private final String _name;
     private int _cost;
     private int _cookingTime;
-    private final List<Review> _reviews;
+    private final ArrayList<Review> _reviews;
 
     public Dish(String name, int cost, int cookingTime) {
         _name = name;
