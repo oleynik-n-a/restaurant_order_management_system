@@ -15,9 +15,7 @@ public class Admin extends User {
         String input;
         Scanner in = new Scanner(System.in);
 
-        for (int i = 0; i < menu.getDishesList().size(); ++i) {
-            System.out.println((i + 1) + ". " + menu.getDishesList().get(i));
-        }
+        showMenuItems(menu);
         System.out.println();
 
         while (true) {
@@ -25,7 +23,8 @@ public class Admin extends User {
             System.out.println("    1. Add new dish to menu.");
             System.out.println("    2. Remove dish from menu.");
             System.out.println("    3. Change dish.");
-            System.out.println("    4. Back.");
+            System.out.println("    4. Show current orders.");
+            System.out.println("    5. Back.");
             System.out.print("\nYour choice: ");
 
             input = in.nextLine();
@@ -40,6 +39,9 @@ public class Admin extends User {
                     changeDish(menu);
                     break;
                 case "4":
+                    showCurrentOrders();
+                    break;
+                case "5":
                     return;
                 default:
                     System.out.println("Incorrect input!\n");
@@ -64,7 +66,7 @@ public class Admin extends User {
     private void addDish(final Menu menu) {
         String input;
         DishBuilder db;
-        Scanner in = new Scanner(System.in);
+        final Scanner in = new Scanner(System.in);
 
         // Type.
         while (true) {
@@ -111,7 +113,7 @@ public class Admin extends User {
 
         // Cost.
         while (true) {
-            System.out.print("Input dish name: ");
+            System.out.print("Input dish cost: ");
             input = in.nextLine();
             try {
                 db.setCost(Integer.parseInt(input));
@@ -131,8 +133,21 @@ public class Admin extends User {
             try {
                 db.setCookingTime(Integer.parseInt(input));
             } catch (NumberFormatException ex) {
-                System.out.println("\nIncorrect input!");
+                System.out.println("\nIncorrect input.");
                 continue;
+            } catch (IllegalArgumentException ex) {
+                System.out.println('\n' + ex.getMessage());
+                continue;
+            }
+            break;
+        }
+
+        // Amount.
+        while (true) {
+            System.out.print("Input dishes amount: ");
+            input = in.nextLine();
+            try {
+                db.setAmount(Integer.parseInt(input));
             } catch (IllegalArgumentException ex) {
                 System.out.println('\n' + ex.getMessage());
                 continue;
@@ -145,7 +160,7 @@ public class Admin extends User {
 
     private void removeDish(final Menu menu) {
         String input;
-        Scanner in = new Scanner(System.in);
+        final Scanner in = new Scanner(System.in);
 
         while (true) {
             System.out.print("Peek a dish to remove: ");
@@ -154,10 +169,10 @@ public class Admin extends User {
             try {
                 menu.getDishesList().remove(Integer.parseInt(input) - 1);
             } catch (NumberFormatException ex) {
-                System.out.println("Incorrect input.");
+                System.out.println("\nIncorrect input.");
                 continue;
             } catch (IndexOutOfBoundsException ex) {
-                System.out.println("Index must be not out of bounds of the dishes list.");
+                System.out.println("\nIndex must be not out of bounds of the dishes list.");
                 continue;
             }
             break;
@@ -165,10 +180,127 @@ public class Admin extends User {
     }
 
     private void changeDish(final Menu menu) {
+        String input;
+        Dish dish;
+        final Scanner in = new Scanner(System.in);
 
+        while (true) {
+            System.out.print("Peek a dish to remove: ");
+            input = in.nextLine();
+
+            try {
+                dish = menu.getDishesList().get(Integer.parseInt(input) - 1);
+            } catch (NumberFormatException ex) {
+                System.out.println("\nIncorrect input.");
+                continue;
+            } catch (IndexOutOfBoundsException ex) {
+                System.out.println("\nIndex must be not out of bounds of the dishes list.");
+                continue;
+            }
+            break;
+        }
+
+        while (true) {
+            showChangeDishMenu();
+            input = in.nextLine();
+
+            try {
+                switch (input) {
+                    case "1":
+                        changeCost(dish);
+                        break;
+                    case "2":
+                        changeCookingTime(dish);
+                        break;
+                    case "3":
+                        changeAmount(dish);
+                        break;
+                    case "4":
+                        return;
+                    default:
+                        System.out.println("\nIncorrect input!");
+                }
+            } catch (IllegalArgumentException ex) {
+                System.out.println('\n' + ex.getMessage());
+            }
+        }
     }
 
     private void showChangeDishMenu() {
+        System.out.println("Choose option:");
+        System.out.println("    1. Change cost.");
+        System.out.println("    2. Change cooking time.");
+        System.out.println("    3. Change dishes amount.");
+        System.out.println("    4. Back.");
+        System.out.print("\nYour choice: ");
+    }
 
+    private void changeCost(Dish dish) {
+        String input;
+        final Scanner in = new Scanner(System.in);
+
+        System.out.print("Input new dish cost: ");
+        input = in.nextLine();
+
+        if (isNotInt(input)) {
+            throw new IllegalArgumentException("Incorrect input.");
+        }
+        if (Integer.parseInt(input) < 0) {
+            throw new IllegalArgumentException("Cost can't be negative.");
+        }
+
+        dish.setCost(Integer.parseInt(input));
+    }
+
+    private void changeCookingTime(Dish dish) {
+        String input;
+        final Scanner in = new Scanner(System.in);
+
+        System.out.print("Input new dish cooking time: ");
+        input = in.nextLine();
+
+        if (isNotInt(input)) {
+            throw new IllegalArgumentException("Incorrect input.");
+        }
+        if (Integer.parseInt(input) <= 0) {
+            throw new IllegalArgumentException("Cooking time can't be negative or zero.");
+        }
+        if (Integer.parseInt(input) < 5) {
+            throw new IllegalArgumentException("Too low. Cooking time should be at least 5 minutes.");
+        }
+        if (Integer.parseInt(input) > 40) {
+            throw new IllegalArgumentException("Too high. Cooking time should be up to 40 minutes.");
+        }
+
+        dish.setCookingTime(Integer.parseInt(input));
+    }
+
+    private void changeAmount(Dish dish) {
+        String input;
+        final Scanner in = new Scanner(System.in);
+
+        System.out.print("Input new dish amount: ");
+        input = in.nextLine();
+
+        if (isNotInt(input)) {
+            throw new IllegalArgumentException("Incorrect input.");
+        }
+        if (Integer.parseInt(input) <= 0) {
+            throw new IllegalArgumentException("Dishes amount can't be negative or zero.");
+        }
+        if (Integer.parseInt(input) > 40) {
+            throw new IllegalArgumentException("Too high. Dishes amount should be up to 20 minutes.");
+        }
+
+        dish.setAmount(Integer.parseInt(input));
+    }
+
+    public static boolean isNotInt(String str) {
+        try {
+            int d = Integer.parseInt(str);
+        } catch (NumberFormatException ex) {
+            return true;
+        }
+        return false;
     }
 }

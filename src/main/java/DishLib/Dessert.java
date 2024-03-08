@@ -1,8 +1,8 @@
 package DishLib;
 
 public class Dessert extends Dish {
-    public Dessert(String name, int cost, int cookingTime) {
-        super(name, cost, cookingTime);
+    public Dessert(String name, int cost, int cookingTime, int amount) {
+        super(name, cost, cookingTime, amount);
     }
 
     @Override
