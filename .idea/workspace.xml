@@ -4,9 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a6318ab-e4d1-47d1-80dc-ff0356c32ea6" name="Changes" comment="Added some logic to class Admin and some another classes">
+    <list default="true" id="0a6318ab-e4d1-47d1-80dc-ff0356c32ea6" name="Changes" comment="Updated Program package name in class Menu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DishLib/Dessert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DishLib/Dessert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DishLib/DessertBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DishLib/DessertBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DishLib/Dish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DishLib/Dish.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DishLib/DishBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DishLib/DishBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DishLib/FirstCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DishLib/FirstCourse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DishLib/FirstCourseBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DishLib/FirstCourseBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DishLib/SecondCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DishLib/SecondCourse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DishLib/SecondCourseBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DishLib/SecondCourseBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/OrderLib/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/OrderLib/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UsersLib/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UsersLib/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UsersLib/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UsersLib/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +101,9 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -102,25 +115,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.restaurant_order_management_system [:Main.main()].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature__users-realization&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.restaurant_order_management_system [:Main.main()].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "feature__menu-dishes-amount",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -138,10 +151,6 @@
       <updated>1708168205708</updated>
       <workItem from="1708168206729" duration="10727000" />
       <workItem from="1708331054141" duration="2794000" />
-      <workItem from="1708772166925" duration="832000" />
-      <workItem from="1708777646375" duration="652000" />
-      <workItem from="1709711431631" duration="165000" />
-      <workItem from="1709913786113" duration="1392000" />
     </task>
     <task id="LOCAL-00001" summary="Fix for Dish::getRating in case to avoid NullReferenceException">
       <option name="closed" value="true" />
@@ -175,23 +184,7 @@
       <option name="project" value="LOCAL" />
       <updated>1708531770218</updated>
     </task>
-    <task id="LOCAL-00005" summary="Added Builder pattern (interface) and builder classes for Dish hierarchy and User hierarchy">
-      <option name="closed" value="true" />
-      <created>1708612615964</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1708612615964</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Added some logic to class Admin and some another classes">
-      <option name="closed" value="true" />
-      <created>1708698652480</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1708698652480</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,9 +223,7 @@
     <MESSAGE value="Fixed fields naming, fixed cast warning" />
     <MESSAGE value="Updated Program package name" />
     <MESSAGE value="Updated Program package name in class Menu" />
-    <MESSAGE value="Added Builder pattern (interface) and builder classes for Dish hierarchy and User hierarchy" />
-    <MESSAGE value="Added some logic to class Admin and some another classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some logic to class Admin and some another classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated Program package name in class Menu" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

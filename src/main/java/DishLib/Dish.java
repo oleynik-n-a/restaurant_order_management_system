@@ -6,12 +6,14 @@ public abstract class Dish implements IReviewable {
     private final String _name;
     private int _cost;
     private int _cookingTime;
+    private int _amount;
     private final ArrayList<Review> _reviews;
 
-    public Dish(String name, int cost, int cookingTime) {
+    public Dish(String name, int cost, int cookingTime, int amount) {
         _name = name;
         _cost = cost;
         _cookingTime = cookingTime;
+        _amount = amount;
         _reviews = new ArrayList<Review>();
     }
 
@@ -33,6 +35,14 @@ public abstract class Dish implements IReviewable {
 
     public void setCookingTime(int value) {
         _cookingTime = value;
+    }
+
+    public int getAmount() {
+        return _amount;
+    }
+
+    public void setAmount(int value) {
+        _amount = value;
     }
 
     public String[] getReviews() {

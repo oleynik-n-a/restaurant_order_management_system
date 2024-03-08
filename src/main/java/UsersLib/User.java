@@ -43,7 +43,7 @@ public abstract class User {
         }
     }
 
-    protected void showMenuItems(Menu menu) {
+    protected void showMenuItems(final Menu menu) {
         System.out.println("Menu:");
         for (int i = 0; i < menu.getDishesList().size(); ++i) {
             System.out.println("  " + (i + 1) + ". " + menu.getDishesList().get(i));

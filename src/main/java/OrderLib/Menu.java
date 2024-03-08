@@ -19,7 +19,7 @@ public class Menu {
         return _dishesList;
     }
 
-    public void saveData() throws IOException, ClassNotFoundException {
+    public void saveData() throws IOException {
         _serializer.serialize(_dishesList);
     }
 }
