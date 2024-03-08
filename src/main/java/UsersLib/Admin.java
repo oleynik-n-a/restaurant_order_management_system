@@ -11,7 +11,7 @@ public class Admin extends User {
         super(login, password);
     }
 
-    public void manageMenu(Menu menu) {
+    public void manageMenu(final Menu menu) {
         String input;
         Scanner in = new Scanner(System.in);
 
@@ -61,7 +61,7 @@ public class Admin extends User {
         System.out.print("\nYour choice: ");
     }
 
-    private void addDish(Menu menu) {
+    private void addDish(final Menu menu) {
         String input;
         DishBuilder db;
         Scanner in = new Scanner(System.in);
@@ -143,7 +143,7 @@ public class Admin extends User {
         menu.getDishesList().add(db.buildPart());
     }
 
-    private void removeDish(Menu menu) {
+    private void removeDish(final Menu menu) {
         String input;
         Scanner in = new Scanner(System.in);
 
@@ -164,7 +164,7 @@ public class Admin extends User {
         }
     }
 
-    private void changeDish(Menu menu) {
+    private void changeDish(final Menu menu) {
 
     }
 
