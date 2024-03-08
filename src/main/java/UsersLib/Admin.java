@@ -1,9 +1,7 @@
 package UsersLib;
 
-import DishLib.Dish;
-import DishLib.FirstCourse;
+import DishLib.*;
 import OrderLib.Menu;
-import OrderLib.OrderStatus;
 
 import java.util.Objects;
 import java.util.Scanner;
@@ -13,9 +11,15 @@ public class Admin extends User {
         super(login, password);
     }
 
-    public void manageMenu(Menu menu) {
-        String input = "";
+    public void manageMenu(final Menu menu) {
+        String input;
         Scanner in = new Scanner(System.in);
+
+        for (int i = 0; i < menu.getDishesList().size(); ++i) {
+            System.out.println((i + 1) + ". " + menu.getDishesList().get(i));
+        }
+        System.out.println();
+
         while (true) {
             System.out.println("Choose option:");
             System.out.println("    1. Add new dish to menu.");
@@ -57,9 +61,9 @@ public class Admin extends User {
         System.out.print("\nYour choice: ");
     }
 
-    private void addDish(Menu menu) {
-        String type, name, input = "";
-        int cost, cookingTime;
+    private void addDish(final Menu menu) {
+        String input;
+        DishBuilder db;
         Scanner in = new Scanner(System.in);
 
         // Type.
@@ -72,16 +76,16 @@ public class Admin extends User {
             input = in.nextLine();
             switch (input) {
                 case "1":
-                    type = "1";
+                    db = new FirstCourseBuilder();
                     break;
                 case "2":
-                    type = "2";
+                    db = new SecondCourseBuilder();
                     break;
                 case "3":
-                    type = "3";
+                    db = new DessertBuilder();
                     break;
                 default:
-                    System.out.println("Incorrect input!\n");
+                    System.out.println("\nIncorrect input!");
                     continue;
             }
             break;
@@ -89,26 +93,82 @@ public class Admin extends User {
 
         // Name.
         while (true) {
-            System.out.println("Input dish name:");
+            System.out.print("Input dish name: ");
             input = in.nextLine();
-            if (input == null || input.isEmpty()) {
-                System.out.println("\nName can't be null or empty.");
+            try {
+                for (var dish : menu.getDishesList()) {
+                    if (Objects.equals(dish.getName(), input)) {
+                        throw new IllegalArgumentException("\nMenu already contains a dish with such name.");
+                    }
+                }
+                db.setName(input);
+            } catch (IllegalArgumentException ex) {
+                System.out.println('\n' + ex.getMessage());
                 continue;
             }
-//            if (menu.getDishesList().contains()) {
-//                System.out.println();
-//                continue;
-//            }
-
             break;
         }
 
+        // Cost.
+        while (true) {
+            System.out.print("Input dish name: ");
+            input = in.nextLine();
+            try {
+                db.setCost(Integer.parseInt(input));
+            } catch (NumberFormatException ex) {
+                System.out.println("\nIncorrect input!");
+                continue;
+            } catch (IllegalArgumentException ex) {
+                System.out.println('\n' + ex.getMessage());
+            }
+            break;
+        }
+
+        // Cooking time.
+        while (true) {
+            System.out.print("Input cooking time: ");
+            input = in.nextLine();
+            try {
+                db.setCookingTime(Integer.parseInt(input));
+            } catch (NumberFormatException ex) {
+                System.out.println("\nIncorrect input!");
+                continue;
+            } catch (IllegalArgumentException ex) {
+                System.out.println('\n' + ex.getMessage());
+                continue;
+            }
+            break;
+        }
+
+        menu.getDishesList().add(db.buildPart());
     }
 
-    private void removeDish(Menu menu) {
+    private void removeDish(final Menu menu) {
+        String input;
+        Scanner in = new Scanner(System.in);
+
+        while (true) {
+            System.out.print("Peek a dish to remove: ");
+            input = in.nextLine();
+
+            try {
+                menu.getDishesList().remove(Integer.parseInt(input) - 1);
+            } catch (NumberFormatException ex) {
+                System.out.println("Incorrect input.");
+                continue;
+            } catch (IndexOutOfBoundsException ex) {
+                System.out.println("Index must be not out of bounds of the dishes list.");
+                continue;
+            }
+            break;
+        }
     }
 
-    private void changeDish(Menu menu) {
+    private void changeDish(final Menu menu) {
+
+    }
+
+    private void showChangeDishMenu() {
 
     }
 }

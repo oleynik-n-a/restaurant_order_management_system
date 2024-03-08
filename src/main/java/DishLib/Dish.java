@@ -57,4 +57,9 @@ public abstract class Dish implements IReviewable {
         }
         return rating / _reviews.size();
     }
+
+    @Override
+    public String toString() {
+        return "name: " + _name + ", cost: " + _cost + ", cooking time: " + _cookingTime;
+    }
 }
