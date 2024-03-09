@@ -2,7 +2,7 @@ package OrderLib;
 
 import DishLib.Dish;
 
-public class Order {
+public final class Order {
     private final Dish[] _orderList;
     private int _cost = 0;
     private int _cookingTime = 0;

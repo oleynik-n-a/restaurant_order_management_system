@@ -5,18 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a6318ab-e4d1-47d1-80dc-ff0356c32ea6" name="Changes" comment="Updated Program package name in class Menu">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DishLib/Dessert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DishLib/Dessert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DishLib/DessertBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DishLib/DessertBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DishLib/Dish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DishLib/Dish.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DishLib/DishBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DishLib/DishBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DishLib/FirstCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DishLib/FirstCourse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DishLib/FirstCourseBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DishLib/FirstCourseBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DishLib/SecondCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DishLib/SecondCourse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DishLib/SecondCourseBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DishLib/SecondCourseBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DishLib/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DishLib/Review.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/OrderLib/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/OrderLib/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UsersLib/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UsersLib/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UsersLib/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UsersLib/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/OrderLib/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/OrderLib/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Program/Serializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Program/Serializer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +112,7 @@
     "Gradle.restaurant_order_management_system [:Main.main()].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature__menu-dishes-amount",
+    "git-widget-placeholder": "feature__management-system",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",

@@ -1,6 +1,6 @@
 package DishLib;
 
-public class Review {
+public final class Review {
     private final int _rating;
     private final String _commentary;
 

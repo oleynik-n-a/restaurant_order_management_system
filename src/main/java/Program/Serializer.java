@@ -2,7 +2,7 @@ package Program;
 
 import java.io.*;
 
-public class Serializer<T> {
+public final class Serializer<T> {
     private final String path;
 
     public Serializer(String path) {
