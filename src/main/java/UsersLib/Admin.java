@@ -13,7 +13,7 @@ public class Admin extends User {
 
     public void manageMenu(final Menu menu) {
         String input;
-        Scanner in = new Scanner(System.in);
+        final Scanner in = new Scanner(System.in);
 
         System.out.println(menu);
         System.out.println();
@@ -39,7 +39,7 @@ public class Admin extends User {
                     changeDish(menu);
                     break;
                 case "4":
-                    showCurrentOrders();
+                    System.out.println(menu);
                     break;
                 case "5":
                     return;
@@ -47,20 +47,6 @@ public class Admin extends User {
                     System.out.println("Incorrect input!\n");
             }
         }
-    }
-
-    public void showCurrentOrders() {
-
-    }
-
-    @Override
-    public void showConsoleMenu() {
-        System.out.println("Choose option:");
-        System.out.println("  1. Manage menu.");
-        System.out.println("  2. Show current orders.");
-        System.out.println("  3. Log out.");
-        System.out.println("  4. Exit system.");
-        System.out.print("\nYour choice: ");
     }
 
     private void addDish(final Menu menu) {
@@ -235,7 +221,7 @@ public class Admin extends User {
         System.out.print("\nYour choice: ");
     }
 
-    private void changeCost(Dish dish) {
+    private void changeCost(final Dish dish) {
         String input;
         final Scanner in = new Scanner(System.in);
 
@@ -252,7 +238,7 @@ public class Admin extends User {
         dish.setCost(Integer.parseInt(input));
     }
 
-    private void changeCookingTime(Dish dish) {
+    private void changeCookingTime(final Dish dish) {
         String input;
         final Scanner in = new Scanner(System.in);
 
@@ -275,7 +261,7 @@ public class Admin extends User {
         dish.setCookingTime(Integer.parseInt(input));
     }
 
-    private void changeAmount(Dish dish) {
+    private void changeAmount(final Dish dish) {
         String input;
         final Scanner in = new Scanner(System.in);
 
@@ -293,5 +279,41 @@ public class Admin extends User {
         }
 
         dish.setAmount(Integer.parseInt(input));
+    }
+
+    @Override
+    public void launchMainMenu(final Menu menu) {
+        String input;
+        final Scanner in = new Scanner(System.in);
+
+        while (true) {
+            showConsoleMenu();
+            input = in.nextLine();
+
+            switch (input) {
+                case "1":
+                    manageMenu(menu);
+                    break;
+                case "2":
+                    System.out.println(menu);
+                    break;
+                case "3":
+                    return;
+                case "4":
+                    System.exit(0);
+                default:
+                    System.out.println("\nIncorrect input.");
+            }
+        }
+    }
+
+    @Override
+    protected void showConsoleMenu() {
+        System.out.println("Choose option:");
+        System.out.println("  1. Manage menu.");
+        System.out.println("  2. Show current orders.");
+        System.out.println("  3. Log out.");
+        System.out.println("  4. Exit system.");
+        System.out.print("\nYour choice: ");
     }
 }
