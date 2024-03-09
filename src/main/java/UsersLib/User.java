@@ -43,12 +43,13 @@ public abstract class User {
         }
     }
 
-    protected void showMenuItems(final Menu menu) {
-        System.out.println("Menu:");
-        for (int i = 0; i < menu.getDishesList().size(); ++i) {
-            System.out.println("  " + (i + 1) + ". " + menu.getDishesList().get(i));
+    protected boolean isNotInt(String str) {
+        try {
+            Integer.parseInt(str);
+        } catch (NumberFormatException ex) {
+            return true;
         }
-        System.out.println();
+        return false;
     }
 
     public abstract void showConsoleMenu();
