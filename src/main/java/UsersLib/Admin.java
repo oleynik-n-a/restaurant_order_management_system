@@ -15,16 +15,16 @@ public class Admin extends User {
         String input;
         Scanner in = new Scanner(System.in);
 
-        showMenuItems(menu);
+        System.out.println(menu);
         System.out.println();
 
         while (true) {
             System.out.println("Choose option:");
-            System.out.println("    1. Add new dish to menu.");
-            System.out.println("    2. Remove dish from menu.");
-            System.out.println("    3. Change dish.");
-            System.out.println("    4. Show current orders.");
-            System.out.println("    5. Back.");
+            System.out.println("  1. Add new dish to menu.");
+            System.out.println("  2. Remove dish from menu.");
+            System.out.println("  3. Change dish.");
+            System.out.println("  4. Show current orders.");
+            System.out.println("  5. Back.");
             System.out.print("\nYour choice: ");
 
             input = in.nextLine();
@@ -56,10 +56,10 @@ public class Admin extends User {
     @Override
     public void showConsoleMenu() {
         System.out.println("Choose option:");
-        System.out.println("    1. Manage menu.");
-        System.out.println("    2. Show current orders.");
-        System.out.println("    3. Log out.");
-        System.out.println("    4. Exit system.");
+        System.out.println("  1. Manage menu.");
+        System.out.println("  2. Show current orders.");
+        System.out.println("  3. Log out.");
+        System.out.println("  4. Exit system.");
         System.out.print("\nYour choice: ");
     }
 
@@ -71,9 +71,9 @@ public class Admin extends User {
         // Type.
         while (true) {
             System.out.println("Input dish type:");
-            System.out.println("    1. First course.");
-            System.out.println("    2. Second course.");
-            System.out.println("    3. Dessert.");
+            System.out.println("  1. First course.");
+            System.out.println("  2. Second course.");
+            System.out.println("  3. Dessert.");
 
             input = in.nextLine();
             switch (input) {
@@ -228,10 +228,10 @@ public class Admin extends User {
 
     private void showChangeDishMenu() {
         System.out.println("Choose option:");
-        System.out.println("    1. Change cost.");
-        System.out.println("    2. Change cooking time.");
-        System.out.println("    3. Change dishes amount.");
-        System.out.println("    4. Back.");
+        System.out.println("  1. Change cost.");
+        System.out.println("  2. Change cooking time.");
+        System.out.println("  3. Change dishes amount.");
+        System.out.println("  4. Back.");
         System.out.print("\nYour choice: ");
     }
 
@@ -293,14 +293,5 @@ public class Admin extends User {
         }
 
         dish.setAmount(Integer.parseInt(input));
-    }
-
-    public static boolean isNotInt(String str) {
-        try {
-            int d = Integer.parseInt(str);
-        } catch (NumberFormatException ex) {
-            return true;
-        }
-        return false;
     }
 }

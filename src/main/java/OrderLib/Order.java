@@ -2,16 +2,18 @@ package OrderLib;
 
 import DishLib.Dish;
 
+import java.util.ArrayList;
+
 public final class Order {
-    private final Dish[] _orderList;
+    private final ArrayList<Dish> _dishesList;
     private int _cost = 0;
     private int _cookingTime = 0;
     private OrderStatus _status;
 
-    public Order(Dish[] orderList) {
+    public Order(ArrayList<Dish> orderList) {
         _status = OrderStatus.Accepted;
-        _orderList = orderList;
-        for (Dish dish : _orderList) {
+        _dishesList = orderList;
+        for (Dish dish : _dishesList) {
             _cost += dish.getCost();
             _cookingTime += dish.getCookingTime();
         }
@@ -36,7 +38,16 @@ public final class Order {
         _status = OrderStatus.values()[_status.ordinal() + 1];
     }
 
-    public Dish[] getOrderList() {
-        return _orderList;
+    public ArrayList<Dish> getDishesList() {
+        return _dishesList;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder str = new StringBuilder("Order:\n");
+        for (int i = 0; i < _dishesList.size(); ++i) {
+            str.append("  ").append(i + 1).append(". ").append(_dishesList.get(i)).append('\n');
+        }
+        return str.toString();
     }
 }
