@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a6318ab-e4d1-47d1-80dc-ff0356c32ea6" name="Changes" comment="Updated Program package name in class Menu">
-      <change beforePath="$PROJECT_DIR$/src/main/java/DishLib/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DishLib/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/OrderLib/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/OrderLib/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/OrderLib/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/OrderLib/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Program/Serializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Program/Serializer.java" afterDir="false" />
+    <list default="true" id="0a6318ab-e4d1-47d1-80dc-ff0356c32ea6" name="Changes" comment="Added '_amount' field in class dish and logic for another classes. Modified class Admin">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +173,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708531770218</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added '_amount' field in class dish and logic for another classes. Modified class Admin">
+      <option name="closed" value="true" />
+      <created>1709942453018</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1709942453018</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,7 +220,8 @@
     <MESSAGE value="Fixed fields naming, fixed cast warning" />
     <MESSAGE value="Updated Program package name" />
     <MESSAGE value="Updated Program package name in class Menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Program package name in class Menu" />
+    <MESSAGE value="Added '_amount' field in class dish and logic for another classes. Modified class Admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added '_amount' field in class dish and logic for another classes. Modified class Admin" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
