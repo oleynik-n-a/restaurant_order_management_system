@@ -23,8 +23,9 @@ public abstract class User {
     }
 
     public void logIn() {
+        final Scanner in = new Scanner(System.in);
+
         while (true) {
-            Scanner in = new Scanner(System.in);
             System.out.print("Input login: ");
             String login = in.nextLine();
             if (Objects.equals(login, _login)) {
@@ -32,8 +33,8 @@ public abstract class User {
             }
             System.out.println("Nonexistent login!\n");
         }
+
         while (true) {
-            Scanner in = new Scanner(System.in);
             System.out.print("Input password: ");
             String password = in.nextLine();
             if (Objects.equals(password, _password)) {
@@ -43,7 +44,7 @@ public abstract class User {
         }
     }
 
-    protected boolean isNotInt(String str) {
+    protected boolean isNotInt(final String str) {
         try {
             Integer.parseInt(str);
         } catch (NumberFormatException ex) {
@@ -52,5 +53,7 @@ public abstract class User {
         return false;
     }
 
-    public abstract void showConsoleMenu();
+    protected abstract void launchMainMenu(final Menu menu);
+
+    protected abstract void showConsoleMenu();
 }

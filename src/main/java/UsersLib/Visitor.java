@@ -19,7 +19,7 @@ public class Visitor extends User {
     public void makeOrder(final Menu menu) {
         String input;
         ArrayList<Dish> dishes = new ArrayList<>();
-        Scanner in = new Scanner(System.in);
+        final Scanner in = new Scanner(System.in);
 
         while (true) {
             System.out.println("Current order:");
@@ -62,7 +62,7 @@ public class Visitor extends User {
 
     public void changeOrder(final Menu menu) {
         String input;
-        Scanner in = new Scanner(System.in);
+        final Scanner in = new Scanner(System.in);
 
         int position = chooseOrder();
         if (position == 0) {
@@ -100,7 +100,7 @@ public class Visitor extends User {
 
     private void addDish(final Menu menu, final Order order) {
         String input;
-        Scanner in = new Scanner(System.in);
+        final Scanner in = new Scanner(System.in);
 
         System.out.print("Choose dish to add: ");
         input = in.nextLine();
@@ -134,7 +134,7 @@ public class Visitor extends User {
 
     private void removeDish(final Order order) {
         String input;
-        Scanner in = new Scanner(System.in);
+        final Scanner in = new Scanner(System.in);
 
         System.out.print("Choose dish to remove: ");
         input = in.nextLine();
@@ -175,7 +175,7 @@ public class Visitor extends User {
 
     private int chooseOrder() {
         String input;
-        Scanner in = new Scanner(System.in);
+        final Scanner in = new Scanner(System.in);
 
         while (true) {
             System.out.println("Current orders:");
@@ -206,13 +206,42 @@ public class Visitor extends User {
     }
 
     @Override
+    protected void launchMainMenu(final Menu menu) {
+        String input;
+        final Scanner in = new Scanner(System.in);
+
+        while (true) {
+            showConsoleMenu();
+            input = in.nextLine();
+
+            switch (input) {
+                case "1":
+                    makeOrder(menu);
+                    break;
+                case "2":
+                    changeOrder(menu);
+                    break;
+                case "3":
+                    cancelOrder();
+                    break;
+                case "4":
+                    return;
+                case "5":
+                    System.exit(0);
+                default:
+                    System.out.println("\nIncorrect input.");
+            }
+        }
+    }
+
+    @Override
     public void showConsoleMenu() {
         System.out.println("Choose option:");
-        System.out.println("    1. Make an order.");
-        System.out.println("    2. Change order.");
-        System.out.println("    3. Cancel order.");
-        System.out.println("    4. Log out.");
-        System.out.println("    5. Exit system.");
+        System.out.println("  1. Make an order.");
+        System.out.println("  2. Change order.");
+        System.out.println("  3. Cancel order.");
+        System.out.println("  4. Log out.");
+        System.out.println("  5. Exit system.");
         System.out.print("\nYour choice: ");
     }
 }
