@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a6318ab-e4d1-47d1-80dc-ff0356c32ea6" name="Changes" comment="Added DataBase files">
+    <list default="true" id="0a6318ab-e4d1-47d1-80dc-ff0356c32ea6" name="Changes" comment="Added '_amount' field in class dish and logic for another classes. Modified class Admin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DishLib/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DishLib/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/OrderLib/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/OrderLib/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/OrderLib/OrderStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/OrderLib/OrderStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataBase/management_system.data" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase/kitchen.data" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Program/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Program/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Program/ManagementSystem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Program/ManagementSystemBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UsersLib/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UsersLib/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UsersLib/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UsersLib/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UsersLib/Visitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UsersLib/Visitor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +73,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="feature_main-logic" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -113,25 +106,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.restaurant_order_management_system [:Main.main()].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature__multi-threading",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.restaurant_order_management_system [:Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -190,15 +183,7 @@
       <option name="project" value="LOCAL" />
       <updated>1709942453018</updated>
     </task>
-    <task id="LOCAL-00006" summary="Added DataBase files">
-      <option name="closed" value="true" />
-      <created>1710035653242</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1710035653242</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,8 +223,7 @@
     <MESSAGE value="Updated Program package name" />
     <MESSAGE value="Updated Program package name in class Menu" />
     <MESSAGE value="Added '_amount' field in class dish and logic for another classes. Modified class Admin" />
-    <MESSAGE value="Added DataBase files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added DataBase files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added '_amount' field in class dish and logic for another classes. Modified class Admin" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
