@@ -31,7 +31,7 @@ public class Validator {
                     case "3":
                         return signInAsAdmin(users);
                     case "4":
-                        System.exit(0);
+                        return null;
                     default:
                         System.out.println("\nIncorrect input.");
                 }
@@ -47,7 +47,7 @@ public class Validator {
         System.out.println("  2. Sign up as visitor.");
         System.out.println("  3. Sign in as admin.");
         System.out.println("  4. Exit system.");
-        System.out.print("\nYour choice:");
+        System.out.print("\nYour choice: ");
     }
 
     private Visitor signInAsVisitor(ArrayList<User> users) {
@@ -67,10 +67,11 @@ public class Validator {
         System.out.print("Input password: ");
         input = in.nextLine();
 
-        if (Objects.equals(account.getPassword(), input)) {
+        if (!Objects.equals(account.getPassword(), input)) {
             throw new IllegalArgumentException("Incorrect password.");
         }
 
+        System.out.println();
         return (Visitor)account;
     }
 
@@ -95,6 +96,7 @@ public class Validator {
         Visitor user = visitorBuilder.buildPart();
         users.add(user);
 
+        System.out.println();
         return user;
     }
 
@@ -115,10 +117,11 @@ public class Validator {
         System.out.print("Input password: ");
         input = in.nextLine();
 
-        if (Objects.equals(account.getPassword(), input)) {
+        if (!Objects.equals(account.getPassword(), input)) {
             throw new IllegalArgumentException("Incorrect password.");
         }
 
+        System.out.println();
         return (Admin)account;
     }
 

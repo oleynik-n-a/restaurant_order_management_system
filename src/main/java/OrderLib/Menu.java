@@ -2,9 +2,10 @@ package OrderLib;
 
 import DishLib.Dish;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Menu {
+public class Menu implements Serializable {
     private final ArrayList<Dish> _dishesList;
 
     public Menu(ArrayList<Dish> dishesList) {

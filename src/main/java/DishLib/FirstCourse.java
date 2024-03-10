@@ -1,6 +1,8 @@
 package DishLib;
 
-public class FirstCourse extends Dish {
+import java.io.Serializable;
+
+public class FirstCourse extends Dish implements Serializable {
     public FirstCourse(String name, int cost, int cookingTime, int amount) {
         super(name, cost, cookingTime, amount);
     }

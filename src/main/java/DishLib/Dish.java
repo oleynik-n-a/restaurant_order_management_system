@@ -1,8 +1,9 @@
 package DishLib;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public abstract class Dish implements IReviewable {
+public abstract class Dish implements IReviewable, Serializable {
     private final String _name;
     private int _cost;
     private int _cookingTime;

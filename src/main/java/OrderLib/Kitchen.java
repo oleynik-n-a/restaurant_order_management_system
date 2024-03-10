@@ -1,6 +1,8 @@
 package OrderLib;
 
-public class Kitchen {
+import java.io.Serializable;
+
+public class Kitchen implements Serializable {
     private static final Kitchen _instance = new Kitchen();
 
     private Kitchen() {}

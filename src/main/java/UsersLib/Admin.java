@@ -3,11 +3,12 @@ package UsersLib;
 import DishLib.*;
 import OrderLib.Menu;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class Admin extends User {
+public class Admin extends User implements Serializable {
     public Admin(String login, String password) {
         super(login, password);
     }
@@ -16,18 +17,8 @@ public class Admin extends User {
         String input;
         final Scanner in = new Scanner(System.in);
 
-        System.out.println(menu);
-        System.out.println();
-
         while (true) {
-            System.out.println("Choose option:");
-            System.out.println("  1. Add new dish to menu.");
-            System.out.println("  2. Remove dish from menu.");
-            System.out.println("  3. Change dish.");
-            System.out.println("  4. Watch reviews.");
-            System.out.println("  5. Back.");
-            System.out.print("\nYour choice: ");
-
+            showManageMenuMenu(menu);
             input = in.nextLine();
             switch (input) {
                 case "1":
@@ -48,6 +39,17 @@ public class Admin extends User {
                     System.out.println("Incorrect input!\n");
             }
         }
+    }
+
+    private void showManageMenuMenu(final Menu menu) {
+        System.out.println(menu);
+        System.out.println("Choose option:");
+        System.out.println("  1. Add new dish to menu.");
+        System.out.println("  2. Remove dish from menu.");
+        System.out.println("  3. Change dish.");
+        System.out.println("  4. Watch reviews.");
+        System.out.println("  5. Back.");
+        System.out.print("\nYour choice: ");
     }
 
     private void addDish(final Menu menu) {
@@ -333,7 +335,7 @@ public class Admin extends User {
     }
 
     @Override
-    public void launchMainMenu(final Menu menu, final ArrayList<User> users) {
+    public boolean launchMainMenu(final Menu menu, final ArrayList<User> users) {
         String input;
         final Scanner in = new Scanner(System.in);
 
@@ -351,9 +353,9 @@ public class Admin extends User {
                 case "3":
                     addAdmin(users);
                 case "4":
-                    return;
+                    return false;
                 case "5":
-                    System.exit(0);
+                    return true;
                 default:
                     System.out.println("\nIncorrect input.");
             }
@@ -364,7 +366,7 @@ public class Admin extends User {
     protected void showConsoleMenu() {
         System.out.println("Choose option:");
         System.out.println("  1. Manage menu.");
-        System.out.println("  2. Show current orders.");
+        System.out.println("  2. Show menu.");
         System.out.println("  3. Add another admin account.");
         System.out.println("  4. Log out.");
         System.out.println("  5. Exit system.");
