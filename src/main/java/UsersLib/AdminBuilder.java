@@ -2,7 +2,7 @@ package UsersLib;
 
 public class AdminBuilder extends UserBuilder {
     @Override
-    public User buildPart() {
+    public Admin buildPart() {
         return new Admin(_login, _password);
     }
 }

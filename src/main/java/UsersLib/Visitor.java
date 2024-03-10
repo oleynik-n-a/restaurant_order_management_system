@@ -4,6 +4,7 @@ import OrderLib.Menu;
 import OrderLib.Order;
 import DishLib.Dish;
 import OrderLib.OrderStatus;
+import Program.ManagementSystem;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -13,7 +14,7 @@ public class Visitor extends User {
 
     public Visitor(String login, String password) {
         super(login, password);
-        _orders = new ArrayList<Order>();
+        _orders = new ArrayList<>();
     }
 
     public void makeOrder(final Menu menu) {
@@ -206,7 +207,9 @@ public class Visitor extends User {
     }
 
     @Override
-    protected void launchMainMenu(final Menu menu) {
+    public void launchMainMenu(final Menu menu,
+                               final ManagementSystem managementSystem,
+                               final ArrayList<User> users) {
         String input;
         final Scanner in = new Scanner(System.in);
 
