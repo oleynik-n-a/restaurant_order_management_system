@@ -2,9 +2,10 @@ package UsersLib;
 
 import OrderLib.Menu;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public abstract class User {
+public abstract class User implements Serializable {
     private final String _password;
     private final String _login;
 
@@ -30,7 +31,7 @@ public abstract class User {
         return false;
     }
 
-    public abstract void launchMainMenu(final Menu menu, final ArrayList<User> users);
+    public abstract boolean launchMainMenu(final Menu menu, final ArrayList<User> users);
 
     protected abstract void showConsoleMenu();
 }

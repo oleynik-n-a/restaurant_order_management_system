@@ -2,9 +2,10 @@ package OrderLib;
 
 import DishLib.Dish;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public final class Order {
+public final class Order implements Serializable {
     private final ArrayList<Dish> _dishesList;
     private OrderStatus _status;
     private int _timeLeft = 0;
@@ -40,7 +41,7 @@ public final class Order {
     }
 
     public void updateStatus() {
-        if (_status == OrderStatus.Ready) {
+        if (_status == OrderStatus.Paid) {
             throw new ArrayIndexOutOfBoundsException("Order is done already!");
         }
         _status = OrderStatus.values()[_status.ordinal() + 1];

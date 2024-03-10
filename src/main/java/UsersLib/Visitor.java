@@ -7,11 +7,12 @@ import OrderLib.Order;
 import DishLib.Dish;
 import OrderLib.OrderStatus;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class Visitor extends User {
+public class Visitor extends User implements Serializable {
     private int _bills;
     private final ArrayList<Order> _orders;
 
@@ -372,7 +373,7 @@ public class Visitor extends User {
     }
 
     @Override
-    public void launchMainMenu(final Menu menu, final ArrayList<User> users) {
+    public boolean launchMainMenu(final Menu menu, final ArrayList<User> users) {
         String input;
         final Scanner in = new Scanner(System.in);
 
@@ -394,13 +395,17 @@ public class Visitor extends User {
                     payBill(menu);
                     break;
                 case "5":
-                    return;
+                    if (_bills != 0) {
+                        System.out.println("\nYou can't leave with unpaid bills.");
+                        continue;
+                    }
+                    return false;
                 case "6":
                     if (_bills != 0) {
                         System.out.println("\nYou can't leave with unpaid bills.");
                         continue;
                     }
-                    System.exit(0);
+                    return true;
                 default:
                     System.out.println("\nIncorrect input.");
             }

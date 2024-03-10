@@ -1,6 +1,8 @@
 package DishLib;
 
-public final class Review {
+import java.io.Serializable;
+
+public final class Review implements Serializable {
     private final int _rating;
     private final String _commentary;
 

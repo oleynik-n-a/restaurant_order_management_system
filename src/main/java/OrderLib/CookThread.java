@@ -13,7 +13,7 @@ public class CookThread extends Thread {
         _order.updateStatus();
         try {
             while (_order.getTimeLeft() > 0) {
-                wait(k);
+                sleep(k);
                 _order.setTimeLeft(_order.getTimeLeft() - 1);
             }
         } catch (InterruptedException ex) {
