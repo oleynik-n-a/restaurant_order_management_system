@@ -6,25 +6,33 @@ import java.util.ArrayList;
 
 public final class Order {
     private final ArrayList<Dish> _dishesList;
-    private int _cost = 0;
-    private int _cookingTime = 0;
     private OrderStatus _status;
+    private int _timeLeft = 0;
 
     public Order(ArrayList<Dish> orderList) {
         _status = OrderStatus.Accepted;
         _dishesList = orderList;
-        for (Dish dish : _dishesList) {
-            _cost += dish.getCost();
-            _cookingTime += dish.getCookingTime();
-        }
+        _timeLeft = getCookingTime();
+    }
+
+    public ArrayList<Dish> getDishesList() {
+        return _dishesList;
     }
 
     public int getCost() {
-        return _cost;
+        int cost = 0;
+        for (Dish dish : _dishesList) {
+            cost += dish.getCost();
+        }
+        return cost;
     }
 
     public int getCookingTime() {
-        return _cookingTime;
+        int cookingTime = 0;
+        for (Dish dish : _dishesList) {
+            cookingTime += dish.getCookingTime();
+        }
+        return cookingTime;
     }
 
     public OrderStatus getStatus() {
@@ -38,8 +46,12 @@ public final class Order {
         _status = OrderStatus.values()[_status.ordinal() + 1];
     }
 
-    public ArrayList<Dish> getDishesList() {
-        return _dishesList;
+    public int getTimeLeft() {
+        return _timeLeft;
+    }
+
+    public void setTimeLeft(int value) {
+        _timeLeft = value;
     }
 
     @Override

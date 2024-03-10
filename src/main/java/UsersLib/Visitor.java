@@ -1,20 +1,24 @@
 package UsersLib;
 
+import DishLib.Review;
+import OrderLib.Kitchen;
 import OrderLib.Menu;
 import OrderLib.Order;
 import DishLib.Dish;
 import OrderLib.OrderStatus;
-import Program.ManagementSystem;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Visitor extends User {
+    private int _bills;
     private final ArrayList<Order> _orders;
 
     public Visitor(String login, String password) {
         super(login, password);
         _orders = new ArrayList<>();
+        _bills = 0;
     }
 
     public void makeOrder(final Menu menu) {
@@ -33,25 +37,29 @@ public class Visitor extends User {
 
             input = in.nextLine();
             if (isNotInt(input)) {
-                System.out.println("Incorrect input.\n");
+                System.out.println("\nIncorrect input.");
                 continue;
             }
 
             int position = Integer.parseInt(input);
             if (position == 0) {
+                if (dishes.isEmpty()) {
+                    System.out.println("\nSorry, you can't make an empty order.");
+                    continue;
+                }
                 _orders.add(new Order(dishes));
                 break;
             }
             if (position < 0) {
-                System.out.println("Incorrect input.\n");
+                System.out.println("'\nIncorrect input.");
                 continue;
             }
             if (position > menu.getDishesList().size()) {
-                System.out.println("Sorry, there is no such position in our menu.\n");
+                System.out.println("\nSorry, there is no such position in our menu.");
                 continue;
             }
             if (menu.getDishesList().get(position - 1).getAmount() == 0) {
-                System.out.println("Sorry, there is no such dish at the moment.\n");
+                System.out.println("\nSorry, there is no such dish at the moment.");
                 continue;
             }
 
@@ -59,6 +67,11 @@ public class Visitor extends User {
             dishes.add(menu.getDishesList().get(position - 1));
             menu.getDishesList().get(position - 1).setAmount(menu.getDishesList().get(position - 1).getAmount() - 1);
         }
+
+        Order order = new Order(dishes);
+        _orders.add(order);
+        Kitchen.getInstance().pushOrder(order);
+        _bills += order.getCost();
     }
 
     public void changeOrder(final Menu menu) {
@@ -123,13 +136,14 @@ public class Visitor extends User {
             System.out.println("Sorry, there is no such dish at the moment.\n");
             return;
         }
-        if (order.getStatus() == OrderStatus.Ready) {
-            System.out.println("Sorry, you can't add a dish when order is ready.\n");
+        if (order.getStatus() == OrderStatus.Ready || order.getStatus() == OrderStatus.Paid) {
+            System.out.println("Sorry, you can't add a dish when order is ready or paid.\n");
             return;
         }
 
         System.out.println();
         order.getDishesList().add(menu.getDishesList().get(position - 1));
+        order.setTimeLeft(order.getTimeLeft() + menu.getDishesList().get(position - 1).getCookingTime());
         menu.getDishesList().get(position - 1).setAmount(menu.getDishesList().get(position - 1).getAmount() - 1);
     }
 
@@ -149,12 +163,13 @@ public class Visitor extends User {
             System.out.println("Incorrect input.\n");
             return;
         }
-        if (order.getStatus() == OrderStatus.Ready) {
-            System.out.println("Sorry, you can't remove a dish when order is ready.\n");
+        if (order.getStatus() == OrderStatus.Ready || order.getStatus() == OrderStatus.Paid) {
+            System.out.println("Sorry, you can't remove a dish when order is ready or paid.\n");
             return;
         }
 
         System.out.println();
+        order.setTimeLeft(Math.max(order.getTimeLeft() - order.getDishesList().get(position - 1).getCookingTime(), 0));
         order.getDishesList().remove(position - 1);
     }
 
@@ -165,8 +180,9 @@ public class Visitor extends User {
             System.out.println();
             return;
         }
-        if (_orders.get(position - 1).getStatus() == OrderStatus.Ready) {
-            System.out.println("Sorry, you can't cancel an order when it's ready.\n");
+        if (_orders.get(position - 1).getStatus() == OrderStatus.Ready ||
+                _orders.get(position - 1).getStatus() == OrderStatus.Paid) {
+            System.out.println("Sorry, you can't cancel an order when it's ready or paid.\n");
             return;
         }
 
@@ -206,10 +222,157 @@ public class Visitor extends User {
         }
     }
 
+    private void payBill(final Menu menu) {
+        final Scanner in = new Scanner(System.in);
+        ArrayList<Order> unpaidOrders = new ArrayList<>();
+        int option;
+        String input;
+
+        for (var order : _orders) {
+            if (order.getStatus() == OrderStatus.Ready) {
+                unpaidOrders.add(order);
+            }
+        }
+
+        if (unpaidOrders.isEmpty()) {
+            System.out.println("\nAll bills are paid.");
+            return;
+        }
+
+        while (true) {
+            showBillPaymentMenu(unpaidOrders);
+            input = in.nextLine();
+
+            if (isNotInt(input)) {
+                System.out.println("\nIncorrect input.");
+                continue;
+            }
+
+            option = Integer.parseInt(input);
+            if (option == 0) {
+                return;
+            }
+            if (option > unpaidOrders.size()) {
+                System.out.println("\nThere is no such option.");
+                continue;
+            }
+
+            unpaidOrders.get(option - 1).updateStatus();
+            System.out.println("\nBill successfully paid.\n");
+            break;
+        }
+
+        System.out.println("\nType 'review' if you want to make review on dishes: ");
+        input = in.nextLine();
+        if (!Objects.equals(input, "review")) {
+            System.out.println();
+            for (int i = 0, j = 0; i < _orders.size(); ++i) {
+                if (_orders.get(i).getStatus() == OrderStatus.Paid) {
+                    ++j;
+                    if (option == j) {
+                        _orders.remove(i);
+                    }
+                }
+            }
+            return;
+        }
+
+        int position = 0;
+        for (int i = 0, j = 0; i < _orders.size(); ++i) {
+            if (_orders.get(i).getStatus() == OrderStatus.Paid) {
+                ++j;
+                if (option == j) {
+                    position = i;
+                    break;
+                }
+            }
+        }
+        makeReviews(menu, position);
+
+        _orders.remove(position);
+    }
+
+    private void showBillPaymentMenu(ArrayList<Order> unpaidOrders) {
+        System.out.println("Choose one of unpaid bills to pay for it (0 to return back):");
+        for (int i = 0; i < unpaidOrders.size(); ++i) {
+            System.out.println("  " + (i + 1) + ". " + unpaidOrders.get(i));
+        }
+        System.out.print("\nYour choice: ");
+    }
+
+    private void makeReviews(final Menu menu, int position) {
+        final Scanner in = new Scanner(System.in);
+        String input;
+
+        while (true) {
+            showReviewMenu(position);
+            input = in.nextLine();
+
+            if (isNotInt(input)) {
+                System.out.println("\nIncorrect input.");
+                continue;
+            }
+
+            int option = Integer.parseInt(input);
+            if (option == 0) {
+                break;
+            }
+            if (option < 0) {
+                System.out.println("\nIncorrect input.");
+                continue;
+            }
+            if (option > _orders.get(position).getDishesList().size()) {
+                System.out.println("\nNo such option.");
+                continue;
+            }
+
+            for (int i = 0; i < menu.getDishesList().size(); ++i) {
+                if (Objects.equals(menu.getDishesList().get(i).getName(),
+                        _orders.get(position).getDishesList().get(option - 1).getName())) {
+                    makeReview(menu.getDishesList().get(i));
+                    break;
+                }
+            }
+
+            break;
+        }
+    }
+
+    private void makeReview(Dish dish) {
+        final Scanner in = new Scanner(System.in);
+        String input;
+        int rating = 0;
+        String comment = "";
+
+        while (true) {
+            System.out.print("\nInput rating (1 - 5): ");
+            input = in.nextLine();
+
+            if (isNotInt(input) || Integer.parseInt(input) < 1 || Integer.parseInt(input) > 5) {
+                System.out.print("\nIncorrect input.");
+                continue;
+            }
+
+            rating = Integer.parseInt(input);
+            break;
+        }
+
+        System.out.print("\nInput comment: ");
+        comment = in.nextLine();
+
+        dish.addReview(new Review(rating, comment));
+    }
+
+    private void showReviewMenu(int position) {
+        System.out.println("Choose dish to make review (0 to return back):");
+        for (int i = 0; i < _orders.get(position).getDishesList().size(); ++i) {
+            System.out.println("  " + (i + 1) + ". " + _orders.get(position).getDishesList().get(i));
+        }
+        System.out.print("\nYour choice: ");
+    }
+
     @Override
-    public void launchMainMenu(final Menu menu,
-                               final ManagementSystem managementSystem,
-                               final ArrayList<User> users) {
+    public void launchMainMenu(final Menu menu, final ArrayList<User> users) {
         String input;
         final Scanner in = new Scanner(System.in);
 
@@ -228,8 +391,15 @@ public class Visitor extends User {
                     cancelOrder();
                     break;
                 case "4":
-                    return;
+                    payBill(menu);
+                    break;
                 case "5":
+                    return;
+                case "6":
+                    if (_bills != 0) {
+                        System.out.println("\nYou can't leave with unpaid bills.");
+                        continue;
+                    }
                     System.exit(0);
                 default:
                     System.out.println("\nIncorrect input.");
@@ -243,8 +413,9 @@ public class Visitor extends User {
         System.out.println("  1. Make an order.");
         System.out.println("  2. Change order.");
         System.out.println("  3. Cancel order.");
-        System.out.println("  4. Log out.");
-        System.out.println("  5. Exit system.");
+        System.out.println("  4. Pay for bills.");
+        System.out.println("  5. Log out.");
+        System.out.println("  6. Exit system.");
         System.out.print("\nYour choice: ");
     }
 }

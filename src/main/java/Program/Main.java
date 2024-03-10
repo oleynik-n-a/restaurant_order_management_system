@@ -1,5 +1,6 @@
 package Program;
 
+import OrderLib.Kitchen;
 import OrderLib.Menu;
 import UsersLib.User;
 import UsersLib.UserBuilder;
@@ -11,12 +12,12 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         Serializer<Menu> menuSerializer = new Serializer<>("src/main/java/DataBase/menu.data");
-        Serializer<ManagementSystem> managementSystemSerializer =
-                new Serializer<>("src/main/java/DataBase/management_system.data");
+
         Serializer<ArrayList<User>> usersSerializer = new Serializer<>("src/main/java/DataBase/users.data");
 
+
         Menu menu = menuSerializer.deserialize();
-        ManagementSystem managementSystem = managementSystemSerializer.deserialize();
+        Kitchen kitchen;
         ArrayList<User> users = usersSerializer.deserialize();
 
         while (true) {
@@ -24,7 +25,7 @@ public class Main {
             if (user == null) {
                 continue;
             }
-            user.launchMainMenu(menu, managementSystem, users);
+            user.launchMainMenu(menu, users);
         }
     }
 }
