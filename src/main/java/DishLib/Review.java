@@ -15,6 +15,6 @@ public final class Review {
 
     @Override
     public String toString() {
-        return String.format(_rating + ". " + _commentary + '.');
+        return String.format(_rating + ". " + _commentary);
     }
 }

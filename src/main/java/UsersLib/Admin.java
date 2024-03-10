@@ -2,7 +2,6 @@ package UsersLib;
 
 import DishLib.*;
 import OrderLib.Menu;
-import Program.ManagementSystem;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -25,7 +24,7 @@ public class Admin extends User {
             System.out.println("  1. Add new dish to menu.");
             System.out.println("  2. Remove dish from menu.");
             System.out.println("  3. Change dish.");
-            System.out.println("  4. Show current orders.");
+            System.out.println("  4. Watch reviews.");
             System.out.println("  5. Back.");
             System.out.print("\nYour choice: ");
 
@@ -41,8 +40,8 @@ public class Admin extends User {
                     changeDish(menu);
                     break;
                 case "4":
-                    System.out.println(menu);
-                    break;
+                    watchReviews(menu);
+                    return;
                 case "5":
                     return;
                 default:
@@ -231,10 +230,10 @@ public class Admin extends User {
         input = in.nextLine();
 
         if (isNotInt(input)) {
-            throw new IllegalArgumentException("Incorrect input.");
+            throw new IllegalArgumentException("\nIncorrect input.");
         }
         if (Integer.parseInt(input) < 0) {
-            throw new IllegalArgumentException("Cost can't be negative.");
+            throw new IllegalArgumentException("\nCost can't be negative.");
         }
 
         dish.setCost(Integer.parseInt(input));
@@ -248,16 +247,16 @@ public class Admin extends User {
         input = in.nextLine();
 
         if (isNotInt(input)) {
-            throw new IllegalArgumentException("Incorrect input.");
+            throw new IllegalArgumentException("\nIncorrect input.");
         }
         if (Integer.parseInt(input) <= 0) {
-            throw new IllegalArgumentException("Cooking time can't be negative or zero.");
+            throw new IllegalArgumentException("\nCooking time can't be negative or zero.");
         }
         if (Integer.parseInt(input) < 5) {
-            throw new IllegalArgumentException("Too low. Cooking time should be at least 5 minutes.");
+            throw new IllegalArgumentException("\nToo low. Cooking time should be at least 5 minutes.");
         }
         if (Integer.parseInt(input) > 40) {
-            throw new IllegalArgumentException("Too high. Cooking time should be up to 40 minutes.");
+            throw new IllegalArgumentException("vToo high. Cooking time should be up to 40 minutes.");
         }
 
         dish.setCookingTime(Integer.parseInt(input));
@@ -271,16 +270,42 @@ public class Admin extends User {
         input = in.nextLine();
 
         if (isNotInt(input)) {
-            throw new IllegalArgumentException("Incorrect input.");
+            throw new IllegalArgumentException("\nIncorrect input.");
         }
         if (Integer.parseInt(input) <= 0) {
-            throw new IllegalArgumentException("Dishes amount can't be negative or zero.");
+            throw new IllegalArgumentException("\nDishes amount can't be negative or zero.");
         }
         if (Integer.parseInt(input) > 40) {
-            throw new IllegalArgumentException("Too high. Dishes amount should be up to 20 minutes.");
+            throw new IllegalArgumentException("\nToo high. Dishes amount should be up to 20 minutes.");
         }
 
         dish.setAmount(Integer.parseInt(input));
+    }
+
+    private void watchReviews(final Menu menu) {
+        String input;
+        final Scanner in = new Scanner(System.in);
+
+        while (true) {
+            System.out.print("\nPeek a dish to watch review (0 to return back): ");
+            input = in.nextLine();
+
+            if (Objects.equals(input, "0")) {
+                return;
+            }
+
+            try {
+                Dish dish = menu.getDishesList().get(Integer.parseInt(input) - 1);
+                System.out.println("\nRating: " + dish.getRating());
+                for (var review : dish.getReviews()) {
+                    System.out.println(review);
+                }
+            } catch (NumberFormatException | IndexOutOfBoundsException ex) {
+                System.out.println("\nIncorrect input.");
+                continue;
+            }
+            break;
+        }
     }
 
     private void addAdmin(ArrayList<User> users) {
@@ -308,9 +333,7 @@ public class Admin extends User {
     }
 
     @Override
-    public void launchMainMenu(final Menu menu,
-                               final ManagementSystem managementSystem,
-                               final ArrayList<User> users) {
+    public void launchMainMenu(final Menu menu, final ArrayList<User> users) {
         String input;
         final Scanner in = new Scanner(System.in);
 

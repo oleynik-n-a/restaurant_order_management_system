@@ -1,11 +1,8 @@
 package UsersLib;
 
 import OrderLib.Menu;
-import Program.ManagementSystem;
 
 import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Scanner;
 
 public abstract class User {
     private final String _password;
@@ -33,9 +30,7 @@ public abstract class User {
         return false;
     }
 
-    public abstract void launchMainMenu(final Menu menu,
-                                        final ManagementSystem managementSystem,
-                                        final ArrayList<User> users);
+    public abstract void launchMainMenu(final Menu menu, final ArrayList<User> users);
 
     protected abstract void showConsoleMenu();
 }
