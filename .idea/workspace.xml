@@ -9,9 +9,6 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/DataBase/kitchen.data" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase/kitchen.data" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DataBase/menu.data" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase/menu.data" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DataBase/users.data" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase/users.data" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DishLib/IReviewable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DishLib/IReviewable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Program/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Program/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UsersLib/Visitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UsersLib/Visitor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +74,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature_serialization" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -118,7 +115,7 @@
     "Gradle.restaurant_order_management_system [:Main.main()].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "develop",
+    "git-widget-placeholder": "feature__readme",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
