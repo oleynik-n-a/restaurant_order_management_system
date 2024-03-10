@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0a6318ab-e4d1-47d1-80dc-ff0356c32ea6" name="Changes" comment="Added '_amount' field in class dish and logic for another classes. Modified class Admin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UsersLib/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UsersLib/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Program/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Program/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UsersLib/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UsersLib/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UsersLib/Visitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UsersLib/Visitor.java" afterDir="false" />
     </list>
@@ -112,7 +112,7 @@
     "Gradle.restaurant_order_management_system [:Main.main()].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature__UserLib-fixes",
+    "git-widget-placeholder": "feature__main-logic",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",

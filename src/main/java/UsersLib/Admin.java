@@ -2,7 +2,9 @@ package UsersLib;
 
 import DishLib.*;
 import OrderLib.Menu;
+import Program.ManagementSystem;
 
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -11,7 +13,7 @@ public class Admin extends User {
         super(login, password);
     }
 
-    public void manageMenu(final Menu menu) {
+    private void manageMenu(final Menu menu) {
         String input;
         final Scanner in = new Scanner(System.in);
 
@@ -281,8 +283,34 @@ public class Admin extends User {
         dish.setAmount(Integer.parseInt(input));
     }
 
+    private void addAdmin(ArrayList<User> users) {
+        final Scanner in = new Scanner(System.in);
+        String input;
+        AdminBuilder adminBuilder = new AdminBuilder();
+
+        System.out.print("Input login: ");
+        input = in.nextLine();
+
+        for (var user : users) {
+            if (Objects.equals(user.getLogin(), input)) {
+                System.out.println("\nThat login is unavailable.");
+                return;
+            }
+        }
+
+        adminBuilder.setLogin(input);
+
+        System.out.print("Input password: ");
+        input = in.nextLine();
+
+        adminBuilder.setPassword(input);
+        users.add(adminBuilder.buildPart());
+    }
+
     @Override
-    public void launchMainMenu(final Menu menu) {
+    public void launchMainMenu(final Menu menu,
+                               final ManagementSystem managementSystem,
+                               final ArrayList<User> users) {
         String input;
         final Scanner in = new Scanner(System.in);
 
@@ -298,8 +326,10 @@ public class Admin extends User {
                     System.out.println(menu);
                     break;
                 case "3":
-                    return;
+                    addAdmin(users);
                 case "4":
+                    return;
+                case "5":
                     System.exit(0);
                 default:
                     System.out.println("\nIncorrect input.");
@@ -312,8 +342,9 @@ public class Admin extends User {
         System.out.println("Choose option:");
         System.out.println("  1. Manage menu.");
         System.out.println("  2. Show current orders.");
-        System.out.println("  3. Log out.");
-        System.out.println("  4. Exit system.");
+        System.out.println("  3. Add another admin account.");
+        System.out.println("  4. Log out.");
+        System.out.println("  5. Exit system.");
         System.out.print("\nYour choice: ");
     }
 }

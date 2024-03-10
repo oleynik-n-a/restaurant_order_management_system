@@ -14,7 +14,7 @@ public abstract class Dish implements IReviewable {
         _cost = cost;
         _cookingTime = cookingTime;
         _amount = amount;
-        _reviews = new ArrayList<Review>();
+        _reviews = new ArrayList<>();
     }
 
     public String getName() {

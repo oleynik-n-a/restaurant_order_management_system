@@ -1,7 +1,9 @@
 package UsersLib;
 
 import OrderLib.Menu;
+import Program.ManagementSystem;
 
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -22,28 +24,6 @@ public abstract class User {
         return _password;
     }
 
-    public void logIn() {
-        final Scanner in = new Scanner(System.in);
-
-        while (true) {
-            System.out.print("Input login: ");
-            String login = in.nextLine();
-            if (Objects.equals(login, _login)) {
-                break;
-            }
-            System.out.println("Nonexistent login!\n");
-        }
-
-        while (true) {
-            System.out.print("Input password: ");
-            String password = in.nextLine();
-            if (Objects.equals(password, _password)) {
-                break;
-            }
-            System.out.println("Incorrect password!\n");
-        }
-    }
-
     protected boolean isNotInt(final String str) {
         try {
             Integer.parseInt(str);
@@ -53,7 +33,9 @@ public abstract class User {
         return false;
     }
 
-    protected abstract void launchMainMenu(final Menu menu);
+    public abstract void launchMainMenu(final Menu menu,
+                                        final ManagementSystem managementSystem,
+                                        final ArrayList<User> users);
 
     protected abstract void showConsoleMenu();
 }
