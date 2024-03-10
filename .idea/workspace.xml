@@ -4,26 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a6318ab-e4d1-47d1-80dc-ff0356c32ea6" name="Changes" comment="Modified main and kitchen.data">
+    <list default="true" id="0a6318ab-e4d1-47d1-80dc-ff0356c32ea6" name="Changes" comment="Modified classes for final program commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DataBase/kitchen.data" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase/kitchen.data" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DataBase/menu.data" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase/menu.data" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DataBase/users.data" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase/users.data" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DishLib/Dessert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DishLib/Dessert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DishLib/Dish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DishLib/Dish.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DishLib/FirstCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DishLib/FirstCourse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DishLib/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DishLib/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DishLib/SecondCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DishLib/SecondCourse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/OrderLib/CookThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/OrderLib/CookThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/OrderLib/Kitchen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/OrderLib/Kitchen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/OrderLib/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/OrderLib/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/OrderLib/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/OrderLib/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/OrderLib/OrderStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/OrderLib/OrderStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DishLib/IReviewable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DishLib/IReviewable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Program/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Program/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UsersLib/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UsersLib/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UsersLib/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UsersLib/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UsersLib/Visitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UsersLib/Visitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ValidatorLib/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ValidatorLib/Validator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +77,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="feature_serialization" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -107,6 +95,9 @@
         <option name="url" value="https://github.com/oleynik-n-a/restaurant_order_management_system.git" />
       </UrlAndAccount>
     </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="ProjectErrors" />
@@ -127,7 +118,7 @@
     "Gradle.restaurant_order_management_system [:Main.main()].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature__serialization",
+    "git-widget-placeholder": "develop",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -257,7 +248,8 @@
     <MESSAGE value="Updated Program package name in class Menu" />
     <MESSAGE value="Added '_amount' field in class dish and logic for another classes. Modified class Admin" />
     <MESSAGE value="Modified main and kitchen.data" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modified main and kitchen.data" />
+    <MESSAGE value="Modified classes for final program commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modified classes for final program commit" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

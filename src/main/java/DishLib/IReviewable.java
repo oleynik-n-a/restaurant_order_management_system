@@ -1,9 +1,9 @@
 package DishLib;
 
 public interface IReviewable {
-    public String[] getReviews();
+    String[] getReviews();
 
-    public void addReview(Review rev);
+    void addReview(Review rev);
 
-    public double getRating();
+    double getRating();
 }

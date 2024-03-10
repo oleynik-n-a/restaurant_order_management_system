@@ -34,7 +34,7 @@ public class Visitor extends User implements Serializable {
             }
             System.out.println("\nChoose dishes (0 while ready):\n");
             System.out.println(menu);
-            System.out.print("\nYour choice: ");
+            System.out.print("Your choice: ");
 
             input = in.nextLine();
             if (isNotInt(input)) {
@@ -48,7 +48,6 @@ public class Visitor extends User implements Serializable {
                     System.out.println("\nSorry, you can't make an empty order.");
                     continue;
                 }
-                _orders.add(new Order(dishes));
                 break;
             }
             if (position < 0) {
@@ -69,13 +68,17 @@ public class Visitor extends User implements Serializable {
             menu.getDishesList().get(position - 1).setAmount(menu.getDishesList().get(position - 1).getAmount() - 1);
         }
 
-        Order order = new Order(dishes);
-        _orders.add(order);
-        Kitchen.getInstance().pushOrder(order);
-        _bills += order.getCost();
+        _orders.add(new Order(dishes));
+        Kitchen.getInstance().pushOrder(_orders.getLast());
+        _bills += _orders.getLast().getCost();
     }
 
     public void changeOrder(final Menu menu) {
+        if (_orders.isEmpty()) {
+            System.out.println("There is nothing to change.\n");
+            return;
+        }
+
         String input;
         final Scanner in = new Scanner(System.in);
 
@@ -175,6 +178,10 @@ public class Visitor extends User implements Serializable {
     }
 
     public void cancelOrder() {
+        if (_orders.isEmpty()) {
+            System.out.println("There is nothing to cancel.\n");
+            return;
+        }
         int position = chooseOrder();
 
         if (position == 0) {
@@ -200,22 +207,21 @@ public class Visitor extends User implements Serializable {
             for (var order : _orders) {
                 System.out.println("  " + order);
             }
-            System.out.println("\nChoose an order (0 to return back):\n");
-            System.out.print("\nYour choice: ");
+            System.out.print("Choose an order (0 to return back). Your choice: ");
 
             input = in.nextLine();
             if (isNotInt(input)) {
-                System.out.println("Incorrect input.\n");
+                System.out.println("\nIncorrect input.");
                 continue;
             }
 
             int position = Integer.parseInt(input);
             if (position < 0) {
-                System.out.println("Incorrect input.\n");
+                System.out.println("\nIncorrect input.");
                 continue;
             }
             if (position > _orders.size()) {
-                System.out.println("Sorry, there is no such order with such position.\n");
+                System.out.println("\nSorry, there is no such order with such position.");
                 continue;
             }
 
@@ -259,11 +265,12 @@ public class Visitor extends User implements Serializable {
             }
 
             unpaidOrders.get(option - 1).updateStatus();
-            System.out.println("\nBill successfully paid.\n");
+            _bills -= unpaidOrders.get(option - 1).getCost();
+            System.out.println("Bill successfully paid.");
             break;
         }
 
-        System.out.println("\nType 'review' if you want to make review on dishes: ");
+        System.out.print("\nType 'review' if you want to make review on dishes: ");
         input = in.nextLine();
         if (!Objects.equals(input, "review")) {
             System.out.println();
@@ -334,16 +341,14 @@ public class Visitor extends User implements Serializable {
                     break;
                 }
             }
-
-            break;
         }
     }
 
     private void makeReview(Dish dish) {
         final Scanner in = new Scanner(System.in);
         String input;
-        int rating = 0;
-        String comment = "";
+        int rating;
+        String comment;
 
         while (true) {
             System.out.print("\nInput rating (1 - 5): ");
@@ -358,7 +363,7 @@ public class Visitor extends User implements Serializable {
             break;
         }
 
-        System.out.print("\nInput comment: ");
+        System.out.print("Input comment: ");
         comment = in.nextLine();
 
         dish.addReview(new Review(rating, comment));

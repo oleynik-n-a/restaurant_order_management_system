@@ -28,7 +28,7 @@ public class Main {
             menu = menuSerializer.deserialize();
             kitchen = kitchenSerializer.deserialize();
             users = usersSerializer.deserialize();
-        } catch(IOException ex) {
+        } catch (IOException ex) {
             ArrayList<Dish> dishes = new ArrayList<>();
             dishes.add(new Dessert("ChocoPie", 10, 5, 12));
             dishes.add(new Dessert("Yashkino", 5, 3, 20));
