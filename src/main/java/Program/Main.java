@@ -10,9 +10,10 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        Serializer<Menu> menuSerializer = new Serializer<>("../DataBase/menu.data");
-        Serializer<ManagementSystem> managementSystemSerializer = new Serializer<>("../DataBase/managementSystem.data");
-        Serializer<ArrayList<User>> usersSerializer = new Serializer<>("../DataBase/users.data");
+        Serializer<Menu> menuSerializer = new Serializer<>("src/main/java/DataBase/menu.data");
+        Serializer<ManagementSystem> managementSystemSerializer =
+                new Serializer<>("src/main/java/DataBase/management_system.data");
+        Serializer<ArrayList<User>> usersSerializer = new Serializer<>("src/main/java/DataBase/users.data");
 
         Menu menu = menuSerializer.deserialize();
         ManagementSystem managementSystem = managementSystemSerializer.deserialize();
